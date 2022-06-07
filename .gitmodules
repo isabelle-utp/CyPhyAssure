@@ -22,3 +22,6 @@
 [submodule "utp-main"]
 	path = utp-main
 	url = https://github.com/isabelle-utp/utp-main
+[submodule "mirror-afp-2021"]
+	path = mirror-afp-2021
+	url = https://github.com/isabelle-utp/mirror-afp-2021.git
