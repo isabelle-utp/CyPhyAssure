@@ -1,0 +1,24 @@
+[submodule "Optics"]
+	path = Optics
+	url = https://github.com/isabelle-utp/Optics
+[submodule "Z_Toolkit"]
+	path = Z_Toolkit
+	url = https://github.com/isabelle-utp/Z_Toolkit
+[submodule "Shallow-Expressions"]
+	path = Shallow-Expressions
+	url = https://github.com/isabelle-utp/Shallow-Expressions
+[submodule "Total_Recall"]
+	path = Total_Recall
+	url = https://github.com/isabelle-utp/Total_Recall
+[submodule "explore-subgoal"]
+	path = explore-subgoal
+	url = https://github.com/isabelle-utp/explore-subgoal
+[submodule "interaction-trees"]
+	path = interaction-trees
+	url = https://github.com/isabelle-utp/interaction-trees
+[submodule "Z_Machines"]
+	path = Z_Machines
+	url = https://github.com/isabelle-utp/Z_Machines
+[submodule "utp-main"]
+	path = utp-main
+	url = https://github.com/isabelle-utp/utp-main
