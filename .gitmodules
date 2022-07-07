@@ -33,3 +33,6 @@
 [submodule "Z_Toolkit"]
 	path = Z_Toolkit
 	url = https://github.com/isabelle-utp/Z_Toolkit
+[submodule "UTP"]
+	path = UTP
+	url = https://github.com/isabelle-utp/UTP
