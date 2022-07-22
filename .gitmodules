@@ -36,3 +36,9 @@
 [submodule "UTP"]
 	path = UTP
 	url = https://github.com/isabelle-utp/UTP
+[submodule "UTP-Reactive"]
+	path = UTP-Reactive
+	url = git@github.com:isabelle-utp/UTP-Reactive.git
+[submodule "UTP-Designs"]
+	path = UTP-Designs
+	url = git@github.com:isabelle-utp/UTP-Designs.git
