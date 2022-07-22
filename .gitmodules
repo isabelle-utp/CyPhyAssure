@@ -35,7 +35,7 @@
 	url = https://github.com/isabelle-utp/Z_Toolkit
 [submodule "UTP"]
 	path = UTP
-	url = https://github.com/isabelle-utp/UTP
+	url = git@github.com:isabelle-utp/UTP.git
 [submodule "UTP-Reactive"]
 	path = UTP-Reactive
 	url = git@github.com:isabelle-utp/UTP-Reactive.git
