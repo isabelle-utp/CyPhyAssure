@@ -6,10 +6,6 @@
 	path = interaction-trees
 	url = https://github.com/isabelle-utp/interaction-trees
 
-[submodule "mirror-afp-2021-1"]
-	path = mirror-afp-2021-1
-	url = https://github.com/isabelle-utp/mirror-afp-2021-1.git
-
 [submodule "Optics"]
 	path = Optics
 	url = https://github.com/isabelle-utp/Optics
@@ -36,3 +32,6 @@
 [submodule "UTP"]
 	path = UTP
 	url = https://github.com/isabelle-utp/UTP
+[submodule "mirror-afp-2022"]
+	path = mirror-afp-2022
+	url = https://github.com/isabelle-utp/mirror-afp-2022
