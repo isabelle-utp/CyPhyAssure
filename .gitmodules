@@ -35,3 +35,12 @@
 [submodule "mirror-afp-2022"]
 	path = mirror-afp-2022
 	url = https://github.com/isabelle-utp/mirror-afp-2022
+[submodule "Hybrid-Library"]
+	path = Hybrid-Library
+	url = https://github.com/isabelle-utp/Hybrid-Library.git
+[submodule "CAS-Integration"]
+	path = CAS-Integration
+	url = https://github.com/isabelle-utp/CAS-Integration.git
+[submodule "Hybrid-Verification"]
+	path = Hybrid-Verification
+	url = https://github.com/isabelle-utp/Hybrid-Verification.git
