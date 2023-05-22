@@ -7,8 +7,7 @@ wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle202
 patch -p1 < Isabelle2022-CyPhyAssure.diff
 
 # Ensure the system heaps option is set, so that heap images are not built to home
-sed -i "s/option system_heaps : bool = false/option system_heaps : bool = true/g
-" etc/options
+sed -i --in-place "s/option system_heaps : bool = false/option system_heaps : bool = true/g" etc/options
 
 # Get the CyPhyAssure repository
 cd src
