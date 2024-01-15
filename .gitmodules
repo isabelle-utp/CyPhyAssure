@@ -32,9 +32,6 @@
 [submodule "UTP"]
 	path = UTP
 	url = https://github.com/isabelle-utp/UTP
-[submodule "mirror-afp-2022"]
-	path = mirror-afp-2022
-	url = https://github.com/isabelle-utp/mirror-afp-2022
 [submodule "Hybrid-Library"]
 	path = Hybrid-Library
 	url = https://github.com/isabelle-utp/Hybrid-Library.git
