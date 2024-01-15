@@ -44,3 +44,6 @@
 [submodule "Hybrid-Verification"]
 	path = Hybrid-Verification
 	url = https://github.com/isabelle-utp/Hybrid-Verification.git
+[submodule "mirror-afp-2023"]
+	path = mirror-afp-2023
+	url = https://github.com/isabelle-utp/mirror-afp-2023
