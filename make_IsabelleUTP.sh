@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Get the patch for Isabelle
-wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2022-CyPhyAssure.diff
+wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
 
 # Patch Isabelle
-patch -p1 < Isabelle2022-CyPhyAssure.diff
+patch -p1 < Isabelle2023-CyPhyAssure.diff
 
 # Ensure the system heaps option is set, so that heap images are not built to home
 sed -i --in-place "s/option system_heaps : bool = false/option system_heaps : bool = true/g" etc/options
