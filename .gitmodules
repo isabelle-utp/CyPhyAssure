@@ -44,3 +44,6 @@
 [submodule "mirror-afp-2023"]
 	path = mirror-afp-2023
 	url = https://github.com/isabelle-utp/mirror-afp-2023
+[submodule "Abstract_Prog_Syntax"]
+	path = Abstract_Prog_Syntax
+	url = https://github.com/isabelle-utp/Abstract_Prog_Syntax
