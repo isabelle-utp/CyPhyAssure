@@ -1,7 +1,24 @@
 #!/bin/bash
 
+# Check if we are probably in the Isabelle directory
+echo "Checking if Isabelle is available..."
+if ! test -f bin/isabelle; then
+  echo "Isabelle executable does not exist under bin/"
+  echo "Is this script being run from the Isabelle directory?"
+  exit 1;
+fi
+
 # Get the patch for Isabelle
-wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
+if [ -x "$(command -v wget)" ]; then
+  echo "Downloading CyPhyAssure patch with wget..."
+  wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
+elif [ -x "$(command -v curl)" ]; then
+  echo "Downloading CyPhyAssure patch with curl..."
+  curl -O https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
+else
+  echo "Cannot download patch, neither wget nor curl is available"
+  exit 1
+fi
 
 # Patch Isabelle
 patch -p1 < Isabelle2023-CyPhyAssure.diff
@@ -23,4 +40,7 @@ bin/isabelle build -b Z_Machines
 bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
 bin/isabelle build -b UTP
+
+# Return systems heaps to false
+sed -i --in-place "s/option system_heaps : bool = true/option system_heaps : bool = false/g" etc/options
 

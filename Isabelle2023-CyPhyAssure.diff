@@ -34,19 +34,6 @@ diff -ur Isabelle2023/etc/build.props Isabelle2023-CyPhyAssure/etc/build.props
  resources = \
    lib/services/java.nio.charset.spi.CharsetProvider:META-INF/services/ \
    lib/logo/isabelle_transparent-32.gif:isabelle/ \
-diff -ur Isabelle2023/etc/options Isabelle2023-CyPhyAssure/etc/options
---- Isabelle2023/etc/options	2023-09-11 18:30:48.000000000 +0100
-+++ Isabelle2023-CyPhyAssure/etc/options	2024-01-15 14:36:02.837962255 +0000
-@@ -159,7 +159,7 @@
- option system_log : string = "" (standard "-") for build
-   -- "output for system messages (log file or \"-\" for console progress)"
- 
--option system_heaps : bool = false for build
-+option system_heaps : bool = true for build
-   -- "store session heaps in $ISABELLE_HEAPS_SYSTEM, not $ISABELLE_HEAPS"
- 
- 
-Only in Isabelle2023-CyPhyAssure/etc: options~
 diff -ur Isabelle2023/src/Pure/PIDE/active.ML Isabelle2023-CyPhyAssure/src/Pure/PIDE/active.ML
 --- Isabelle2023/src/Pure/PIDE/active.ML	2023-09-11 18:30:48.000000000 +0100
 +++ Isabelle2023-CyPhyAssure/src/Pure/PIDE/active.ML	2024-01-15 14:34:57.729554738 +0000
