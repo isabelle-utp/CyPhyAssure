@@ -28,7 +28,7 @@ bin/isabelle build -b ITree_VCG
 bin/isabelle build -b Z_Machines
 bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
-bin/isabelle build -b UTP
+bin/isabelle build -b UTP2
 
 # Return systems heaps to false
 sed -i --in-place "s/option system_heaps : bool = true/option system_heaps : bool = false/g" etc/options
