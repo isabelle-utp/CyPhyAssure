@@ -36,6 +36,7 @@ echo "src/CyPhyAssure" >> ROOTS
 
 # Build main sessions
 bin/isabelle build -b ITree_VCG
+bin/isabelle build -b ITree_Numeric_VCG
 bin/isabelle build -b Z_Machines
 bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
