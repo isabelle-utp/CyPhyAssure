@@ -11,17 +11,17 @@ fi
 # Get the patch for Isabelle
 if [ -x "$(command -v wget)" ]; then
   echo "Downloading CyPhyAssure patch with wget..."
-  wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
+  wget https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2024-CyPhyAssure.diff
 elif [ -x "$(command -v curl)" ]; then
   echo "Downloading CyPhyAssure patch with curl..."
-  curl -O https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2023-CyPhyAssure.diff
+  curl -O https://raw.githubusercontent.com/isabelle-utp/CyPhyAssure/main/Isabelle2024-CyPhyAssure.diff
 else
   echo "Cannot download patch, neither wget nor curl is available"
   exit 1
 fi
 
 # Patch Isabelle
-patch -p1 < Isabelle2023-CyPhyAssure.diff
+patch -p1 < Isabelle2024-CyPhyAssure.diff
 
 # Ensure the system heaps option is set, so that heap images are not built to home
 sed -i --in-place "s/option system_heaps : bool = false/option system_heaps : bool = true/g" etc/options
@@ -40,6 +40,7 @@ bin/isabelle build -b ITree_Numeric_VCG
 bin/isabelle build -b Z_Machines
 bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
+bin/isabelle build -b Circus_Toolkit
 bin/isabelle build -b UTP2
 
 # Return systems heaps to false

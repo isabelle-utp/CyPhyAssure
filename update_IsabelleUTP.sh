@@ -29,6 +29,7 @@ bin/isabelle build -b ITree_Numeric_VCG
 bin/isabelle build -b Z_Machines
 bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
+bin/isabelle build -b Circus_Toolkit
 bin/isabelle build -b UTP2
 
 # Return systems heaps to false
