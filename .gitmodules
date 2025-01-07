@@ -47,3 +47,6 @@
 [submodule "mirror-afp-2024"]
 	path = mirror-afp-2024
 	url = https://github.com/isabelle-utp/mirror-afp-2024
+[submodule "Circus_Toolkit"]
+	path = Circus_Toolkit
+	url = https://github.com/isabelle-utp/Circus_Toolkit
