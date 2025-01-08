@@ -42,6 +42,8 @@ bin/isabelle build -b Hybrid-Verification
 bin/isabelle build -b Z_Toolkit
 bin/isabelle build -b Circus_Toolkit
 bin/isabelle build -b UTP2
+bin/isabelle build -b UTP-Designs
+bin/isabelle build -b UTP-Reactive
 
 # Return systems heaps to false
 sed -i --in-place "s/option system_heaps : bool = true/option system_heaps : bool = false/g" etc/options
