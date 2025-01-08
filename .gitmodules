@@ -50,3 +50,9 @@
 [submodule "Circus_Toolkit"]
 	path = Circus_Toolkit
 	url = https://github.com/isabelle-utp/Circus_Toolkit
+[submodule "UTP-Designs"]
+	path = UTP-Designs
+	url = https://github.com/isabelle-utp/UTP-Designs
+[submodule "UTP-Reactive"]
+	path = UTP-Reactive
+	url = https://github.com/isabelle-utp/UTP-Reactive
