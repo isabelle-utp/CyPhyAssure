@@ -44,9 +44,6 @@
 [submodule "Abstract_Prog_Syntax"]
 	path = Abstract_Prog_Syntax
 	url = https://github.com/isabelle-utp/Abstract_Prog_Syntax
-[submodule "mirror-afp-2024"]
-	path = mirror-afp-2024
-	url = https://github.com/isabelle-utp/mirror-afp-2024
 [submodule "Circus_Toolkit"]
 	path = Circus_Toolkit
 	url = https://github.com/isabelle-utp/Circus_Toolkit
@@ -56,3 +53,6 @@
 [submodule "UTP-Reactive"]
 	path = UTP-Reactive
 	url = https://github.com/isabelle-utp/UTP-Reactive
+[submodule "mirror-afp-2025"]
+	path = mirror-afp-2025
+	url = https://github.com/isabelle-utp/mirror-afp-2025
