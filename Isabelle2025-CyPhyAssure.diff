@@ -1,0 +1,182 @@
+diff -ru Isabelle2025.app/contrib/jedit-20250215/etc/settings Isabelle2025-CyPhyAssure.app/contrib/jedit-20250215/etc/settings
+--- Isabelle2025.app/contrib/jedit-20250215/etc/settings	2025-02-15 14:00:56
++++ Isabelle2025-CyPhyAssure.app/contrib/jedit-20250215/etc/settings	2025-04-28 16:55:47
+@@ -4,6 +4,8 @@
+ JEDIT_JARS="$JEDIT_HOME/jars/Code2HTML.jar:$JEDIT_HOME/jars/CommonControls.jar:$JEDIT_HOME/jars/Console.jar:$JEDIT_HOME/jars/ErrorList.jar:$JEDIT_HOME/jars/Highlight.jar:$JEDIT_HOME/jars/Navigator.jar:$JEDIT_HOME/jars/QuickNotepad.jar:$JEDIT_HOME/jars/SideKick.jar:$JEDIT_HOME/jars/jsr305-3.0.2.jar:$JEDIT_HOME/jars/kappalayout.jar"
+ JEDIT_JAR="$JEDIT_HOME/jedit.jar"
+ classpath "$JEDIT_JAR"
++classpath "$JEDIT_HOME/jars/Console.jar"
++classpath "$JEDIT_HOME/jars/ErrorList.jar"
+ 
+ JEDIT_SETTINGS="$ISABELLE_HOME_USER/jedit"
+ 
+diff -ru Isabelle2025.app/contrib/jedit-20250215/jedit5.7.0-patched/properties/jEdit.props Isabelle2025-CyPhyAssure.app/contrib/jedit-20250215/jedit5.7.0-patched/properties/jEdit.props
+--- Isabelle2025.app/contrib/jedit-20250215/jedit5.7.0-patched/properties/jEdit.props	2025-03-13 12:50:52
++++ Isabelle2025-CyPhyAssure.app/contrib/jedit-20250215/jedit5.7.0-patched/properties/jEdit.props	2025-04-28 16:56:44
+@@ -11,7 +11,7 @@
+ buffer.undoCount=1000
+ close-docking-area.shortcut2=C+e C+CIRCUMFLEX
+ complete-word.shortcut=
+-console.dock-position=floating
++console.dock-position=bottom
+ console.encoding=UTF-8
+ console.font=Isabelle DejaVu Sans Mono
+ console.fontsize=14
+diff -ru Isabelle2025.app/etc/build.props Isabelle2025-CyPhyAssure.app/etc/build.props
+--- Isabelle2025.app/etc/build.props	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/etc/build.props	2025-04-29 10:49:10
+@@ -1,6 +1,8 @@
+ title = Isabelle/Scala
+ module = $ISABELLE_HOME/lib/classes/isabelle.jar
+ main = isabelle.jedit.JEdit_Main
++requirements = \
++  env:JEDIT_JARS
+ resources = \
+   lib/services/java.nio.charset.spi.CharsetProvider:META-INF/services/ \
+   lib/logo/isabelle_transparent-32.gif:isabelle/ \
+Binary files Isabelle2025.app/lib/classes/isabelle.jar and Isabelle2025-CyPhyAssure.app/lib/classes/isabelle.jar differ
+diff -ru Isabelle2025.app/lib/scripts/Isabelle_app Isabelle2025-CyPhyAssure.app/lib/scripts/Isabelle_app
+--- Isabelle2025.app/lib/scripts/Isabelle_app	2025-03-13 12:50:52
++++ Isabelle2025-CyPhyAssure.app/lib/scripts/Isabelle_app	2025-04-29 10:52:17
+@@ -28,7 +28,7 @@
+ 
+ exec "$ISABELLE_JDK_HOME/bin/java" \
+   "-Disabelle.root=$ISABELLE_HOME" "${JAVA_OPTIONS[@]}" \
+-  -classpath "$ISABELLE_HOME/contrib/flatlaf-3.5.4-1/lib/flatlaf-3.5.4-no-natives.jar:$ISABELLE_HOME/contrib/isabelle_setup-20240327/lib/isabelle_setup.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/jakarta.mail-api-2.1.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/jakarta.activation-api-2.1.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/angus-mail-2.0.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/angus-activation-2.0.2.jar:$ISABELLE_HOME/contrib/jedit-20250215/jedit5.7.0-patched/jedit.jar:$ISABELLE_HOME/contrib/jfreechart-1.5.3/lib/iText-2.1.5.jar:$ISABELLE_HOME/contrib/jfreechart-1.5.3/lib/jfreechart-1.5.3.jar:$ISABELLE_HOME/contrib/jortho-1.0-2/jortho.jar:$ISABELLE_HOME/contrib/jsoup-1.18.3/lib/jsoup-1.18.3.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/antlr-runtime-3.1.1.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/kodkod-1.5.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/kodkodi-1.5.7.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/sat4j-2.3.jar:$ISABELLE_HOME/contrib/postgresql-42.7.5/lib/postgresql-42.7.5.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-library-2.13.14.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-library_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-asm-9.6.0-scala-1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/compiler-interface-1.9.6.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-interfaces-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-compiler_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/tasty-core_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-staging_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-tasty-inspector_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-reader-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-terminal-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-terminal-jna-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jna-5.14.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-parallel-collections_3-1.0.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-parser-combinators_3-2.4.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-swing_3-3.0.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-xml_3-2.3.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-solrj-9.7.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-api-9.7.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-core-9.7.0.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/sqlite-jdbc-3.48.0.0.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/slf4j-api-2.0.16.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/slf4j-nop-2.0.16.jar:$ISABELLE_HOME/contrib/xz-java-1.10/lib/xz-1.10.jar:$ISABELLE_HOME/contrib/zstd-jni-1.5.6-8/zstd-jni-1.5.6-8.jar:$ISABELLE_HOME/lib/classes/isabelle.jar:$ISABELLE_HOME/src/Tools/Demo/lib/demo.jar:$ISABELLE_HOME/lib/classes/isabelle_graphbrowser.jar" \
++  -classpath "$ISABELLE_HOME/contrib/flatlaf-3.5.4-1/lib/flatlaf-3.5.4-no-natives.jar:$ISABELLE_HOME/contrib/isabelle_setup-20240327/lib/isabelle_setup.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/jakarta.mail-api-2.1.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/jakarta.activation-api-2.1.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/angus-mail-2.0.3.jar:$ISABELLE_HOME/contrib/javamail-20250122/lib/angus-activation-2.0.2.jar:$ISABELLE_HOME/contrib/jedit-20250215/jedit5.7.0-patched/jedit.jar:$ISABELLE_HOME/contrib/jedit-20250215/jedit5.7.0-patched/jars/Console.jar:$ISABELLE_HOME/contrib/jedit-20250215/jedit5.7.0-patched/jars/ErrorList.jar:$ISABELLE_HOME/contrib/jfreechart-1.5.3/lib/iText-2.1.5.jar:$ISABELLE_HOME/contrib/jfreechart-1.5.3/lib/jfreechart-1.5.3.jar:$ISABELLE_HOME/contrib/jortho-1.0-2/jortho.jar:$ISABELLE_HOME/contrib/jsoup-1.18.3/lib/jsoup-1.18.3.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/antlr-runtime-3.1.1.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/kodkod-1.5.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/kodkodi-1.5.7.jar:$ISABELLE_HOME/contrib/kodkodi-1.5.7/jar/sat4j-2.3.jar:$ISABELLE_HOME/contrib/postgresql-42.7.5/lib/postgresql-42.7.5.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-library-2.13.14.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-library_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-asm-9.6.0-scala-1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/compiler-interface-1.9.6.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-interfaces-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-compiler_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/tasty-core_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-staging_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala3-tasty-inspector_3-3.3.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-reader-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-terminal-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jline-terminal-jna-3.25.1.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/jna-5.14.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-parallel-collections_3-1.0.4.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-parser-combinators_3-2.4.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-swing_3-3.0.0.jar:$ISABELLE_HOME/contrib/scala-3.3.4/lib/scala-xml_3-2.3.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-solrj-9.7.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-api-9.7.0.jar:$ISABELLE_HOME/contrib/solr-9.7.0-1/lib/solr-core-9.7.0.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/sqlite-jdbc-3.48.0.0.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/slf4j-api-2.0.16.jar:$ISABELLE_HOME/contrib/sqlite-3.48.0.0/lib/slf4j-nop-2.0.16.jar:$ISABELLE_HOME/contrib/xz-java-1.10/lib/xz-1.10.jar:$ISABELLE_HOME/contrib/zstd-jni-1.5.6-8/zstd-jni-1.5.6-8.jar:$ISABELLE_HOME/lib/classes/isabelle.jar:$ISABELLE_HOME/src/Tools/Demo/lib/demo.jar:$ISABELLE_HOME/lib/classes/isabelle_graphbrowser.jar" \
+   "-splash:$ISABELLE_HOME/lib/logo/isabelle.gif" \
+ "-Xdock:icon=$ISABELLE_HOME/lib/logo/isabelle_transparent-128.png" \
+ isabelle.jedit.JEdit_Main "$@"
+diff -ru Isabelle2025.app/src/Pure/PIDE/active.ML Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/active.ML
+--- Isabelle2025.app/src/Pure/PIDE/active.ML	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/active.ML	2025-04-29 10:53:29
+@@ -14,6 +14,8 @@
+   val dialog: unit -> (string -> Markup.T) * string future
+   val dialog_text: unit -> (string -> string) * string future
+   val dialog_result: serial -> string -> unit
++  val run_shell_command: string -> string option -> string -> string -> string
++  val run_system_shell_command: string option -> string -> string -> string
+ end;
+ 
+ structure Active: ACTIVE =
+@@ -62,6 +64,16 @@
+   Synchronized.change_result dialogs
+     (fn tab => (Inttab.lookup tab i, Inttab.delete_safe i tab))
+   |> (fn NONE => () | SOME promise => Future.fulfill promise result);
++
++fun run_shell_command shell dir cmd = 
++  let val dirprop = (case dir of NONE => [] | SOME d => [(Markup.shell_directoryN, d)])
++  in Markup.markup 
++      (make_markup Markup.run_shell_commandN 
++        {implicit = false
++        ,properties = [(Markup.shell_typeN, shell), (Markup.shell_commandN, cmd)] @ dirprop})
++  end
++
++val run_system_shell_command = run_shell_command "System";
+ 
+ end;
+ 
+diff -ru Isabelle2025.app/src/Pure/PIDE/markup.ML Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/markup.ML
+--- Isabelle2025.app/src/Pure/PIDE/markup.ML	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/markup.ML	2025-04-29 10:54:47
+@@ -253,6 +253,10 @@
+   val padding_command: Properties.entry
+   val dialogN: string val dialog: serial -> string -> T
+   val jedit_actionN: string
++  val run_shell_commandN: string
++  val shell_commandN: string
++  val shell_typeN: string
++  val shell_directoryN: string
+   val function: string -> Properties.entry
+   val ML_statistics: {pid: int, stats_dir: string} -> Properties.T
+   val commands_accepted: Properties.T
+@@ -801,6 +805,13 @@
+ 
+ val jedit_actionN = "jedit_action";
+ 
++val run_shell_commandN = "run_shell_command"
++
++val shell_commandN = "shell_command"
++
++val shell_typeN = "shell_type"
++
++val shell_directoryN = "shell_directory"
+ 
+ (* protocol message functions *)
+ 
+diff -ru Isabelle2025.app/src/Pure/PIDE/markup.scala Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/markup.scala
+--- Isabelle2025.app/src/Pure/PIDE/markup.scala	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/markup.scala	2025-04-29 10:55:16
+@@ -667,6 +667,10 @@
+ 
+   val JEDIT_ACTION = "jedit_action"
+ 
++  val SHELL_COMMAND = "shell_command"
++  val SHELL_TYPE = "shell_type"
++  val SHELL_DIRECTORY = "shell_directory"
++  val RUN_SHELL_COMMAND = "run_shell_command"
+ 
+   /* protocol message functions */
+ 
+diff -ru Isabelle2025.app/src/Pure/PIDE/rendering.scala Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/rendering.scala
+--- Isabelle2025.app/src/Pure/PIDE/rendering.scala	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/src/Pure/PIDE/rendering.scala	2025-04-29 10:56:41
+@@ -221,7 +221,7 @@
+ 
+   val active_elements: Markup.Elements =
+     Markup.Elements(Markup.DIALOG, Markup.BROWSER, Markup.GRAPHVIEW, Markup.THEORY_EXPORTS,
+-      Markup.SENDBACK, Markup.JEDIT_ACTION, Markup.SIMP_TRACE_PANEL)
++      Markup.SENDBACK, Markup.JEDIT_ACTION, Markup.SIMP_TRACE_PANEL, Markup.RUN_SHELL_COMMAND)
+ 
+   val background_elements: Markup.Elements =
+     Document_Status.Command_Status.proper_elements + Markup.WRITELN_MESSAGE +
+Binary files Isabelle2025.app/src/Tools/Demo/lib/demo.jar and Isabelle2025-CyPhyAssure.app/src/Tools/Demo/lib/demo.jar differ
+diff -ru Isabelle2025.app/src/Tools/jEdit/src/active.scala Isabelle2025-CyPhyAssure.app/src/Tools/jEdit/src/active.scala
+--- Isabelle2025.app/src/Tools/jEdit/src/active.scala	2025-03-12 10:39:00
++++ Isabelle2025-CyPhyAssure.app/src/Tools/jEdit/src/active.scala	2025-04-29 10:58:19
+@@ -9,8 +9,8 @@
+ 
+ import isabelle._
+ import org.gjt.sp.jedit.{ServiceManager, View}
++import console.{Console, Shell}
+ 
+-
+ object Active {
+   abstract class Handler {
+     def handle(
+@@ -98,6 +98,35 @@
+         case Protocol.Dialog(id, serial, result) =>
+           model.session.dialog_result(id, serial, result)
+           true
++
++        case XML.Elem(Markup(Markup.RUN_SHELL_COMMAND, props), _) =>
++          val shell_name = Properties.get(props, Markup.SHELL_TYPE).getOrElse("System")
++          Properties.get (props, Markup.SHELL_COMMAND) match { 
++            case None => false
++            case Some(cmd) =>
++              view.getDockableWindowManager().addDockableWindow("console")
++
++              // Obtain the console instance
++              val console = view.getDockableWindowManager().getDockable("console").asInstanceOf[Console]
++
++              // Set the shell to use
++              val shell = Shell.getShell(shell_name)
++
++              shell.stop(console)
++              while (!shell.waitFor(console)) { }
++
++              // Change directory if requested
++              Properties.get(props, Markup.SHELL_DIRECTORY) match {
++                case Some(dir) => shell.chDir(console, dir);
++                case None => {}
++              }
++              while (!shell.waitFor(console)) { }
++
++              // Run the given command
++              console.run(shell, cmd)
++
++              true
++          }
+ 
+         case _ => false
+       }
